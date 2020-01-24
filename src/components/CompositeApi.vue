@@ -28,11 +28,11 @@ export default {
         const user = ref(props.name);
 
         const appendName = () => {
-            user.value = `Hello ${props.name}`
+            user.value = `Welcome ${props.name} :)`
         }
 
         const plusOne = computed(() => {
-            user.value = `Hello Miszczu ${props.name}`
+            user.value = `Hello ${props.name}`
         })
 
         return { user, appendName, plusOne }

@@ -49,7 +49,7 @@ cd app-name
 npm run server &
 ```
 
-## Project setup
+# Project setup (after git clone)
 ```
 npm install
 ```
@@ -68,6 +68,17 @@ npm run build
 ```
 npm run lint
 ```
+
+### Run dist (http://localhost:5000)
+```bash
+npm install -g serve
+
+cd app-name
+serve -s dist
+```
+
+### How to deploy
+See [Deploy](https://cli.vuejs.org/guide/deployment.html#github-pages)
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
