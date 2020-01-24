@@ -1,5 +1,5 @@
-# Vue
-Vue router app sample
+# Vue Composition API
+Vue router app with composition API
 
 ## Install Vue dev
 Install development tools
@@ -28,6 +28,16 @@ cd app-name
 
 # add router
 vue add router
+```
+
+### Vue 3 Composition API
+```bash
+# install api
+npm install @vue/composition-api --save
+
+# add to index.js
+import VueCompositionApi from '@vue/composition-api';
+Vue.use(VueCompositionApi);
 ```
 
 ### Run local server
