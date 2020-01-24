@@ -1,7 +1,9 @@
 <template>
     <div class="hello">
         <h1> {{ user }} </h1>
-        <button @click="appendName"> Click me </button>
+        <div class="box">
+            <button type="button" class="mbtn btn btn-success" @click="appendName"> Push Me </button>
+        </div>
     </div>
 </template>
 
@@ -39,5 +41,15 @@ export default {
 <style scoped>
 .helo{
     font-weight: 22px; color: #09f;
+}
+
+.box{margin: auto;; text-align: center; max-width: 400px; display: flex}
+button {margin: auto; margin-top: 20px; width: auto; cursor: pointer}
+input[type=number] {width: 60%; box-sizing:border-box;}
+
+.btn-success {
+    color: #fff;
+    background-color:#42b983;
+    border-color:#28a745;
 }
 </style>
