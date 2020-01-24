@@ -1,9 +1,11 @@
 <template>
     <div class="hello">
+
         <h1> {{ user }} </h1>
         <div class="box">
             <button type="button" class="mbtn btn btn-success" @click="appendName"> Push Me </button>
         </div>
+
     </div>
 </template>
 
