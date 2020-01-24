@@ -77,6 +77,10 @@ cd app-name
 serve -s dist
 ```
 
+### Composite Api
+See [Install Composite Api](https://github.com/vuejs/composition-api)
+See [Composite Api RFC](https://vue-composition-api-rfc.netlify.com)
+
 ### How to deploy
 See [Deploy](https://cli.vuejs.org/guide/deployment.html#github-pages)
 
