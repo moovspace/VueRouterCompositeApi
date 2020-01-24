@@ -9,7 +9,6 @@ import Money from '../views/Money.vue'
 
 Vue.use(VueRouter)
 Vue.use(VueCompositionApi);
-Vue.use(Money)
 
 const routes = [
   {
