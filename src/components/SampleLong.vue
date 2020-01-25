@@ -15,10 +15,10 @@
 <script>
 /* ref, reactive, computed, watch, onMounted, onUpdated, onUnmounted */
 // Vue 2.x,
-import { reactive, computed, toRefs, watch } from "@vue/composition-api";
+import { reactive, computed, toRefs, watch, onMounted, onUpdated, onUnmounted } from "@vue/composition-api";
 
 // Vue 3.x
-// import { reactive, computed, toRefs, watch } from "vue";
+// import { reactive, computed, toRefs, watch, onMounted, onUpdated, onUnmounted } from "vue";
 
 export default {
     setup() {
@@ -40,6 +40,11 @@ export default {
         const Watch = watch(capacity, (newVal, oldVal) => {
             alert("Changed " + newVal + ' ' + oldVal)
         });
+
+        // Hooks
+        onMounted(() => { alert("Clock Object mounted") });
+        onUpdated(() => { alert("Clock Object updated") });
+        onUnmounted(() => { alert("Clock Object unmounted") });
 
         return { capacity, attending, spacesLeft, increaseCapacity };
     }

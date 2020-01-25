@@ -15,10 +15,10 @@
 <script>
 /* ref, reactive, computed, watch, onMounted, onUpdated, onUnmounted */
 // Vue 2.x,
-import { reactive, computed, toRefs } from "@vue/composition-api";
+import { reactive, computed, toRefs, watch, onMounted, onUpdated, onUnmounted } from "@vue/composition-api";
 
 // Vue 3.x
-// import { reactive, computed, toRefs } from "vue";
+// import { reactive, computed, toRefs, watch, onMounted, onUpdated, onUnmounted } from "vue";
 
 export default {
     setup() {
@@ -29,10 +29,20 @@ export default {
             spacesLeft: computed(() => { return event.capacity - event.attending.length; })
         });
 
-        // Method
+        // Methods
         function increaseCapacity() {
             event.capacity++;
         }
+
+        // Watchers, fire when obj change
+        const Watch = watch(event, (newVal, oldVal) => {
+            alert("Changed " + newVal + ' ' + oldVal)
+        });
+
+        // Hooks
+        onMounted(() => { alert("Clock Object mounted") });
+        onUpdated(() => { alert("Clock Object updated") });
+        onUnmounted(() => { alert("Clock Object unmounted") });
 
         // Notice we don’t have to use .value since the object is reactive
         // toRefs creates a plain object with reactive references
