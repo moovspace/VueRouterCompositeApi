@@ -34,6 +34,12 @@ export default {
             event.capacity++;
         }
 
+        function addSctipt(){
+            let js = document.createElement('script')
+            js.setAttribute('src', 'https://www.google.com/recaptcha/api.js')
+            document.head.appendChild(js)
+        }
+
         // Watchers, fire when obj change
         const Watch = watch(event, (newVal, oldVal) => {
             alert("Changed " + newVal + ' ' + oldVal)

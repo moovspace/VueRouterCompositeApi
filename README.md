@@ -129,6 +129,13 @@ export default {
             capacity.value++;
         }
 
+        // Add javascript to <head>
+        function addSctipt(){
+            let js = document.createElement('script')
+            js.setAttribute('src', 'https://www.google.com/recaptcha/api.js')
+            document.head.appendChild(js)
+        }
+
         // Watchers, fire when obj change
         const Watch = watch(capacity, (newVal, oldVal) => {
             alert("Changed " + newVal + ' ' + oldVal)
