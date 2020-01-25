@@ -89,7 +89,7 @@ cd VueRouterApp
 serve -s dist
 ```
 
-# Sample component
+# Component
 ```vue
 <template>
     <div>
