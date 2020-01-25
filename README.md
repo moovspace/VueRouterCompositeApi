@@ -23,10 +23,10 @@ vue create app-name
 # install router
 npm install vue-router
 
-# add to vue app
+# goto directory
 cd app-name
 
-# add router
+# add router to app
 vue add router
 ```
 
@@ -35,22 +35,33 @@ vue add router
 # install api
 npm install @vue/composition-api --save
 
-# add to index.js
+# add to index.js (2.x)
 import VueCompositionApi from '@vue/composition-api';
 Vue.use(VueCompositionApi);
+
+# or (3.x)
+# import VueCompositionApi from 'vue';
+# Vue.use(VueCompositionApi);
 ```
 
-### Run local server
+### Run local dev server
 ```bash
-# goto app folder
+# goto app dir
 cd app-name
 
 # run in background
 npm run server &
 ```
 
-# Project setup (after git clone)
+# Project setup
 ```
+# get package
+git clone https://github.com/moovspace/VueRouterApp
+
+# goto dir
+cd VueRouterApp
+
+# update
 npm install
 ```
 
@@ -59,7 +70,7 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compiles and minifies for production (create dist directory)
 ```
 npm run build
 ```
@@ -69,17 +80,22 @@ npm run build
 npm run lint
 ```
 
-### Run dist (http://localhost:5000)
+### Run dist deploy (http://localhost:5000)
 ```bash
 npm install -g serve
 
-cd app-name
+# run server
+cd VueRouterApp
 serve -s dist
 ```
 
-### Composite Api
+### Vue 2
+See [Vue Cheat Sheet](https://github.com/dekadentno/vue-cheat-sheet)
+
+### Vue 3 Composite Api
 See [Install Composite Api](https://github.com/vuejs/composition-api)
 See [Composite Api RFC](https://vue-composition-api-rfc.netlify.com)
+See [Vue 3 Composite Api Pdf](https://www.vuemastery.com/pdf/Vue-3-Cheat-Sheet.pdf)
 
 ### How to deploy
 See [Deploy](https://cli.vuejs.org/guide/deployment.html#github-pages)

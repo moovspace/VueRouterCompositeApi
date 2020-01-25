@@ -13,31 +13,28 @@ import { ref, computed, watch, onMounted } from "@vue/composition-api";
 
 export default {
   setup() {
-    // State
+    // State, create object {value: 10}, {value: 1}
     const money = ref(10);
     const delta = ref(1);
 
-    // Computed props
+    // Computed props, run when money obj change
     const formattedMoney = computed(() => money.value.toFixed(2));
 
     // Hooks
     onMounted(() => { alert("Clock Object mounted") });
+    onUpdated(() => { alert("Clock Object updated") });
+    onUnmounted(() => { alert("Clock Object unmounted") });
 
-    // Methods
+    // Methods, for @click="add"
     const add = () => (money.value += Number(delta.value));
 
-    // Watchers
+    // Watchers, fire when obj change
     const moneyWatch = watch(money, (newVal, oldVal) => {
-      alert("Money changed", newVal, oldVal)
+      alert("Money changed " + newVal + ' ' + oldVal)
     });
 
-    return {
-      delta,
-      money,
-      formattedMoney,
-      add,
-      moneyWatch
-    };
+    // Data
+    return {delta, money, formattedMoney, add, moneyWatch };
   }
 };
 </script>

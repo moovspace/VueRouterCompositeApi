@@ -4,6 +4,9 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+// Suppress all vue logs and warnings (hide).
+Vue.config.silent = true
+
 new Vue({
   router,
   render: h => h(App)
