@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { ref, computed, watch, onMounted } from "@vue/composition-api";
+import { ref, computed, watch, onMounted, onUnmounted, onUpdated } from "@vue/composition-api";
 
 export default {
   setup() {

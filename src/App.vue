@@ -9,6 +9,21 @@
   </div>
 </template>
 
+<script>
+// This in App.vue Composite Api Store
+import { provideStore } from './store-composite-api'
+
+export default {
+    props: {
+        name: String
+    },
+    setup(props, {root: {$store}}) {
+        // Set global store
+        provideStore($store);
+    }
+}
+</script>
+
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
