@@ -1,5 +1,5 @@
-# Vue Composition API
-Vue router app with composition API
+# Vue Router Composition API
+Vue router app with composition API and vuex store (vue, vue-router, vue/composition-api, vuex store, vuex composition api store).
 
 ## Install Vue dev
 Install development tools
