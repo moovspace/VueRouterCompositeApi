@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapState } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
+// import { mapGetters, mapActions, mapState } from 'vuex';
 
 // Vue store
 export default {
@@ -18,11 +19,11 @@ export default {
   components: {
   },
   methods: {
-    ...mapActions(['loadThings'])
+    ...mapActions(['loadThings', 'loadThings1'])
   },
   computed: {
-    ...mapGetters(['allTodos','doneTodos']),
-    ...mapState({a: state => state.a, b: state => state.b})
+    ...mapGetters(['allTodos', 'allTodos1','doneTodos']),
+    // ...mapState({a: state => state.a, b: state => state.b})
   },
   created() {
     this.loadThings();

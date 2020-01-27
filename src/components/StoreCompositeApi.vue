@@ -1,25 +1,37 @@
 <template>
-    <div>
-        <h1>Todos list</h1>
-        <div class="todos">
-            <div class="todo" v-for="todo in allTodos" v-bind:key="todo.id">
-                <div class="cell flex1"> {{ todo.id }} </div> <div class="cell flex10">  {{ todo.title }} </div> <div class="cell flex1">{{ todo.completed }} </div>
-            </div>
-        </div>
-    </div>
+	<div>
+		<h1>Todos list</h1>
+		<div class="todos">
+				<div class="todo" v-for="todo in allTodos1" v-bind:key="todo.id">
+						<div class="cell flex1"> {{ todo.id }} </div> <div class="cell flex10">  {{ todo.title }} </div> <div class="cell flex1">{{ todo.completed }} </div>
+				</div>
+		</div>
+	</div>
 </template>
 
 <script>
-// Composite Api Store Import
 import { useStore } from '../store-composite-api'
+// import { computed } from '@vue/composition-api'
+// Composite Api Store Import
 
 export default {
-  setup(){
-    let store = useStore();
-    let allTodos = store.getters.allTodos;
+	setup(){
+		const store = useStore();
 
-    return { allTodos }
-  }
+		// Trigger Mutations
+		// store.commit("loadThings", "Hello 1");
+
+		// Trigger Actions
+		store.dispatch('loadThings1')
+
+		// Trigger Getters
+		const allTodos1 = store.getters.allTodos1
+
+		// computed(() => { allTodos })
+
+		// Return to the template
+		return { allTodos1 }
+	}
 }
 </script>
 

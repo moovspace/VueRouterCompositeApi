@@ -12,12 +12,16 @@
     <!-- Store Composite Api Vuex Sample -->
     <StoreCompApi />
 
+    <!-- AddThings component -->
+    <AddThing />
+
   </div>
 </template>
 
 <script>
 // Composite Api component
 import CompApi from '@/components/CompositeApi.vue';
+import AddThing from '@/components/AddThing.vue';
 
 // Import Store component
 import Store from '@/components/Store.vue';
@@ -28,7 +32,7 @@ import StoreCompApi from '@/components/StoreCompositeApi.vue';
 export default {
   name: 'about',
   components: {
-    CompApi, Store, StoreCompApi
+    CompApi, AddThing, Store, StoreCompApi
   }
 }
 </script>

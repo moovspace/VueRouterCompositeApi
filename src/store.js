@@ -6,8 +6,6 @@ Vue.use(Vuex);
 
 const moduleOne = {
   state: {
-    a: true,
-    b: false,
     things: [],
     todos: [
       {
@@ -22,46 +20,73 @@ const moduleOne = {
         "title": "quis ut nam facilis et officia qui",
         "completed": true
       }
+    ],
+    todos1: [
+      {
+        "userId": 1,
+        "id": 2,
+        "title": "quis ut nam facilis et officia qui",
+        "completed": true
+      }
     ]
   },
   getters: {
     allTodos: state => state.todos,
+    allTodos1: state => state.todos1,
     doneTodos: state => {
       return state.todos.filter(todo => todo.done)
     }
   },
+  // actions have to be synchronous and asynchronous
   actions: {
     async loadThings ({ commit })
     {
-      let response = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10');
+      let response = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5');
+      // Run mutations update
       commit("loadThings", response.data);
     },
-    addThing: ({ commit }, payload) => {
-      commit("addThing", payload);
+    async loadThings1 ({ commit })
+    {
+      let response = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=4');
+      // Run mutations update
+      commit("loadThings1", response.data);
     },
-    deleteThing: ({ commit }, payload) => {
-      commit("deleteThing", payload);
+    async addThing ({ commit }, title) {
+      let response = await axios.post('https://jsonplaceholder.typicode.com/todos', {title, completed: false});
+      // Run mutations update
+      commit("addThing", response.data);
+    },
+    deleteThing: ({ commit }, data) => {
+      commit("deleteThing", data);
     }
   },
+  // mutations have to be synchronous
   mutations: {
-    addThing(state, payload) {
-      state.todos = [payload, ...state.todos];
+    // Update data
+    addThing(state, todo) {
+      // state.todos.unshift(todo);
+      state.todos = [todo, ...state.todos];
     },
-    deleteThing(state, payload) {
-      let newArray = state.todos.filter(i => i.id !== payload);
+    deleteThing(state, data) {
+      let newArray = state.todos.filter(i => i.id !== data);
       state.todos = newArray;
     },
-    loadThings: (state, payload) => {
-      state.todos = [...payload];
+    loadThings: (state, data) => {
+      state.todos = [...data];
+    },
+    loadThings1: (state, data) => {
+      state.todos1 = [...data];
     }
   }
 }
 
-const store = new Vuex.Store({
-  modules: {
-    a: moduleOne
-  }
-});
+const store = new Vuex.Store(moduleOne);
+
+// const store = new Vuex.Store({
+//   modules: {
+//     a: moduleOne
+//   }
+// });
 
 // store.state.a // -> `moduleOnce`'s state
 
