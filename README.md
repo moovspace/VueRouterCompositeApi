@@ -35,13 +35,24 @@ vue add router
 # install api
 npm install @vue/composition-api --save
 
-# add to index.js (2.x)
+# add to main.js (2.x)
 import VueCompositionApi from '@vue/composition-api';
 Vue.use(VueCompositionApi);
 
 # or (3.x)
 # import VueCompositionApi from 'vue';
 # Vue.use(VueCompositionApi);
+```
+
+### Vue Vuex install
+```bash
+# install Vuex
+cd app-name
+npm install vuex --save
+
+# add to main.js (2.x)
+import Vuex from 'vuex'
+Vue.use(Vuex)
 ```
 
 ### Run local dev server
