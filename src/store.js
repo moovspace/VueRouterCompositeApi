@@ -1,19 +1,11 @@
+// npm i -g @vue/cli
 import Vue from "vue";
+// npm install vuex
 import Vuex from "vuex";
+// npm install axios
 import axios from 'axios';
 
 Vue.use(Vuex);
-
-// Reusable store
-// const MyReusableModule = {
-//   state () {
-//     return {
-//       foo: 'bar'
-//     }
-//   },
-//   // mutations, actions, getters...
-// }
-
 
 const state = {
   ha: "Works! Promise Async functions and .then( update Todos )!",

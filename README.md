@@ -184,6 +184,66 @@ export default {
 </style>
 ```
 
+### Vue Composite Api store
+store-composite-api.js
+```js
+// Composition Api store
+import { provide, inject } from '@vue/composition-api';
+const StoreSymbol = Symbol();
+export function provideStore(store){
+    provide(StoreSymbol, store);
+}
+export function useStore(){
+    const store  = inject(StoreSymbol);
+    if(!store){
+        // future
+    }
+    return store;
+}
+```
+
+App.vue
+```js
+<script>
+// This in App.vue Composite Api Store
+import { provideStore } from './store-composite-api'
+
+export default {
+    props: {
+        name: String
+    },
+    setup(props, {root: {$store}}) {
+        // Set global store
+        provideStore($store);
+    }
+}
+</script>
+```
+
+Component.vue
+```js
+<script>
+import { useStore } from '../store-composite-api'
+import { ref } from "@vue/composition-api";
+// import { computed, watch } from '@vue/composition-api'
+
+export default {
+	export default {
+	setup(){
+		const store = useStore();
+
+		let Todos = ref(store.getters.allTodos);
+
+		// Async function, update todos
+		store.dispatch('loadThings').then(() => {
+			Todos.value = store.getters.allTodos
+			console.log("Loaded!!! " + Todos.value)
+		});
+    }
+}
+</script>
+```
+
 ### Vue 2
 See [Vue Cheat Sheet](https://github.com/dekadentno/vue-cheat-sheet)
 
