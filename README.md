@@ -76,6 +76,20 @@ cd VueRouterApp
 npm install
 ```
 
+### Allow browser console logs
+package.json
+```bash
+"eslintConfig": {
+    ...
+
+    "rules": {
+      "no-console": "off"
+    }
+
+    ...
+  }
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve

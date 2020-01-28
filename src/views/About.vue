@@ -32,7 +32,7 @@ import StoreCompApi from '@/components/StoreCompositeApi.vue';
 export default {
   name: 'about',
   components: {
-    CompApi, AddThing, Store, StoreCompApi
+    CompApi, AddThing, StoreCompApi, Store
   }
 }
 </script>

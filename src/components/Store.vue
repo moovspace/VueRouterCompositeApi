@@ -19,14 +19,15 @@ export default {
   components: {
   },
   methods: {
-    ...mapActions(['loadThings', 'loadThings1'])
+    ...mapActions(['loadThings'])
   },
   computed: {
-    ...mapGetters(['allTodos', 'allTodos1','doneTodos']),
+    ...mapGetters(['allTodos']),
     // ...mapState({a: state => state.a, b: state => state.b})
   },
   created() {
     this.loadThings();
+    this.loadThings1();
   }
 }
 </script>

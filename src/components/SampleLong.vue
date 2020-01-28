@@ -15,7 +15,7 @@
 <script>
 /* ref, reactive, computed, watch, onMounted, onUpdated, onUnmounted */
 // Vue 2.x,
-import { reactive, computed, toRefs, watch, onMounted, onUpdated, onUnmounted } from "@vue/composition-api";
+import { ref, reactive, computed, toRefs, watch, onMounted, onUpdated, onUnmounted } from "@vue/composition-api";
 
 // Vue 3.x
 // import { reactive, computed, toRefs, watch, onMounted, onUpdated, onUnmounted } from "vue";

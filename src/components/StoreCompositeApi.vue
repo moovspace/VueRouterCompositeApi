@@ -2,7 +2,7 @@
 	<div>
 		<h1>Todos list</h1>
 		<div class="todos">
-				<div class="todo" v-for="todo in allTodos1" v-bind:key="todo.id">
+				<div class="todo" v-for="todo in Todos" v-bind:key="todo.id">
 						<div class="cell flex1"> {{ todo.id }} </div> <div class="cell flex10">  {{ todo.title }} </div> <div class="cell flex1">{{ todo.completed }} </div>
 				</div>
 		</div>
@@ -11,26 +11,31 @@
 
 <script>
 import { useStore } from '../store-composite-api'
-// import { computed } from '@vue/composition-api'
-// Composite Api Store Import
+// import { computed, watch } from '@vue/composition-api'
+import { ref } from "@vue/composition-api";
 
 export default {
 	setup(){
 		const store = useStore();
 
-		// Trigger Mutations
-		// store.commit("loadThings", "Hello 1");
+		let Todos = ref(store.getters.allTodos);
 
-		// Trigger Actions
-		store.dispatch('loadThings1')
+		// Async function, update todos
+		store.dispatch('loadThings').then(() => {
+			Todos.value = store.getters.allTodos
+			console.log("Loaded!!! " + Todos.value)
+		});
 
-		// Trigger Getters
-		const allTodos1 = store.getters.allTodos1
+		// computed(() => {
+		// 	console.log("Computed " + Todos.value)
+		// });
 
-		// computed(() => { allTodos })
+		// watch(Todos, (newVal, oldVal) => {
+		// 	console.log("Changed " + newVal + oldVal)
+		// 	Todos.value = store.getters.allTodos
+		// });
 
-		// Return to the template
-		return { allTodos1 }
+		return { Todos }
 	}
 }
 </script>
